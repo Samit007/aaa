@@ -5,7 +5,7 @@ module.exports = {
         host:'localhost',
         user: 'admin',
         password:'admin' ,
-      database:'online_cloth'
+      database:'online_clothing'
     },
     migration:{
         tableName: 'migrations',

@@ -8,11 +8,13 @@ const knex = require('knex');
 const config = require('./knexfile.js');
 const dbClient = knex(config);
 var uploadRouter = require('./upload.js');
+
 express.use(Express.static(path.join(__dirname, 'public')));
 
 express.use(bodyParser.json());
 
 function sendUser(request, response){
+    console.log("hit")
     dbClient('users')
     .select('*')
     .then(data=>{
@@ -27,8 +29,8 @@ function sendUser(request, response){
 function newUser(request, response){
     dbClient('users')
         .insert({
-            fname:request.body.fname,
-            lname:request.body.lname,
+            userFname:request.body.userFname,
+            userLname:request.body.userLname,
             username:request.body.username,
             password:request.body.password
         })
